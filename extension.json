@@ -1,0 +1,8 @@
+{
+  "id": "retail-coordinates-extension",
+  "name": "retail-coordinates-extension",
+  "srcdoc": "./build/index.html",
+  "fieldTypes": [
+    "Object"
+  ]
+}
