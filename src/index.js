@@ -81,12 +81,12 @@ export class App extends React.Component {
     const value = get(this.state, 'value', []);
 
     return (
-      <div className="Box">
-        <div className="Box__content">
+      <div className="App">
+        <div className="App__content">
           {
             value.map((item) => (
-              <div key={item.id} className="Box__item">
-                <div className="Box__field">
+              <div key={item.id} className="App__item">
+                <div className="App__field">
                   <TextField
                     id={item.id}
                     name={item.id}
@@ -98,7 +98,7 @@ export class App extends React.Component {
                   />
                 </div>
 
-                <div className="Box__remove">
+                <div className="App__remove">
                   <Button buttonType="negative" icon="Close" onClick={() => this.onRemoveItem(item.id)} />
                 </div>
               </div>
@@ -106,7 +106,7 @@ export class App extends React.Component {
           }
         </div>
 
-        <div className="Box__footer">
+        <div className="App__footer">
           <Button buttonType="primary" onClick={this.onAddItem}>Add point</Button>
         </div>
       </div>

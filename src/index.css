@@ -9,16 +9,16 @@ div {
   vertical-align: baseline;
 }
 
-.Box__content {
+.App__content {
   margin-bottom: var(--spacing-xl);
 }
 
-.Box__item {
+.App__item {
   display: flex;
   align-items: center;
   margin-bottom: var(--spacing-m);
 }
 
-.Box__field {
+.App__field {
   margin-right: var(--spacing-m);
 }
