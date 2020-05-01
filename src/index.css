@@ -8,3 +8,17 @@ div {
   font: inherit;
   vertical-align: baseline;
 }
+
+.Box__content {
+  margin-bottom: var(--spacing-xl);
+}
+
+.Box__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-m);
+}
+
+.Box__field {
+  margin-right: var(--spacing-m);
+}
