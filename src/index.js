@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import get from 'lodash/get';
 import { v4 as uuidv4 } from 'uuid';
-import { TextInput, Button } from '@contentful/forma-36-react-components';
+import { TextField, Button } from '@contentful/forma-36-react-components';
 import { init } from 'contentful-ui-extensions-sdk';
 import '@contentful/forma-36-react-components/dist/styles.css';
 import '@contentful/forma-36-tokens/dist/css/index.css';
@@ -19,8 +19,6 @@ export class App extends React.Component {
     sdk: PropTypes.object.isRequired
   };
 
-  detachExternalChangeHandler = null;
-
   constructor(props) {
     super(props);
 
@@ -31,15 +29,6 @@ export class App extends React.Component {
 
   componentDidMount() {
     this.props.sdk.window.startAutoResizer();
-
-    // Handler for external field value changes (e.g. when multiple authors are working on the same entry).
-    this.detachExternalChangeHandler = this.props.sdk.field.onValueChanged(this.onExternalChange);
-  }
-
-  componentWillUnmount() {
-    if (this.detachExternalChangeHandler) {
-      this.detachExternalChangeHandler();
-    }
   }
 
   onSave = (value) => this.props.sdk.field.setValue(value);
@@ -98,9 +87,12 @@ export class App extends React.Component {
             value.map((item) => (
               <div key={item.id} className="Box__item">
                 <div className="Box__field">
-                  <TextInput
+                  <TextField
+                    id={item.id}
+                    name={item.id}
+                    labelText="Coordinates"
+                    helpText="Latitude, Longitude"
                     width="medium"
-                    type="text"
                     value={item.coordinates}
                     onChange={(event) => this.onChange(item.id, event.target.value)}
                   />
